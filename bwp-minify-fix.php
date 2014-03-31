@@ -8,9 +8,9 @@ Author: Josh Lee / QC Creative
 Author URI: http://qccreative.com
 License: GPLv3
 */
-function mu_tweaks() {
+function qccwp_bwp_minify_fix() {
 	//Exclude admin bar from bwp minify
-	function exclude_my_css($excluded)
+	function qccwp_bwp_exclude_css($excluded)
 	{
 	    //admin-bar and dashicons are from wp
 	    //boxes is for WordPress SEO by Yoast
@@ -19,6 +19,6 @@ function mu_tweaks() {
 	    $excluded = array('admin-bar','dashicons','boxes');
 	    return $excluded;
 	}
-	add_filter('bwp_minify_style_ignore', 'exclude_my_css');
+	add_filter('bwp_minify_style_ignore', 'qccwp_bwp_exclude_css');
 }
-add_action( 'init', 'mu_tweaks' );
+add_action( 'init', 'qccwp_bwp_minify_fix' );
